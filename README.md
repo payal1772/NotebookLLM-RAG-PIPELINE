@@ -1,4 +1,4 @@
-# 📓 NotebookLLM Clone
+# 📓 NotebookLLM RAG Pipeline
 
 A local RAG (Retrieval-Augmented Generation) pipeline that lets you upload documents and ask questions across all of them — just like Google's NotebookLM.
 
