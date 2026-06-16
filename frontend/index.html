@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Notebook RAG</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+<link rel="stylesheet" href="/frontend/style.css" />
+</head>
+<body>
+
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <span class="logo-dot"></span>
+      <span class="logo">Notebook RAG</span>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="sidebar-section">
+      <div class="section-label">Upload document</div>
+
+      <div class="drop-zone" id="drop-zone">
+        <i class="ti ti-cloud-upload"></i>
+        <p>Drop a file here or <span class="browse" id="browse-btn">browse</span></p>
+        <p class="formats">txt · md · pdf · docx · png · jpg · webp</p>
+      </div>
+      <input type="file" id="file-input" accept=".txt,.md,.pdf,.docx,.png,.jpg,.jpeg,.webp" />
+
+      <div class="selected-file" id="selected-preview">
+        <i class="ti ti-file-text"></i>
+        <span id="selected-name"></span>
+        <button id="clear-file-btn">×</button>
+      </div>
+
+      <button class="upload-btn" id="upload-btn" disabled>
+        <i class="ti ti-upload"></i> Upload
+      </button>
+      <div class="progress-bar" id="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="sidebar-section docs-section">
+      <div class="section-label">
+        Documents <span id="doc-count"></span>
+      </div>
+      <div class="doc-list" id="doc-list">
+        <div class="doc-empty">No documents yet.</div>
+      </div>
+      <button class="refresh-btn" id="refresh-btn">
+        <i class="ti ti-refresh"></i> Refresh
+      </button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="chat-header">
+      <div>
+        <div class="header-title">Ask your documents</div>
+        <div class="header-sub">
+          <span class="status-dot"></span>
+          Notebook AI · llama-3.1-8b via Groq
+        </div>
+      </div>
+      <button class="clear-btn" id="clear-chat-btn">
+        <i class="ti ti-trash"></i> Clear
+      </button>
+    </div>
+
+    <div class="messages" id="messages">
+      <div class="welcome">
+        <div class="welcome-icon"><i class="ti ti-book-2"></i></div>
+        <h3>Ready to answer from your docs</h3>
+        <p>Upload one or more documents on the left,<br />then ask questions about their content.</p>
+      </div>
+    </div>
+
+    <div class="input-area">
+      <div class="input-row">
+        <textarea id="query" placeholder="Ask a question about your documents…" rows="1"></textarea>
+        <button class="send-btn" id="send-btn">
+          <i class="ti ti-send"></i>
+        </button>
+      </div>
+      <div class="input-hint">Answers are grounded in your uploaded documents only.</div>
+    </div>
+  </main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="/frontend/script.js"></script>
+</body>
+</html>
